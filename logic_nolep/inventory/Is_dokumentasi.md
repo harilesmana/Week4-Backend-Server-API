@@ -269,12 +269,14 @@ Authorization: Bearer YOUR_JWT_TOKEN
     "name": "string"
   }
 ]
+```
 - 401 Unauthorized:
 
 ```json
 {
   "message": "Invalid token"
 }
+```
 Mendapatkan Kategori Berdasarkan ID
 Endpoint: GET /api/categories/:id
 
