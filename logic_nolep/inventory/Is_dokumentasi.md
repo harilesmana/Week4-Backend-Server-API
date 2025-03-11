@@ -190,3 +190,68 @@ Authorization: Bearer YOUR_JWT_TOKEN
   "email": "string"
 }
 ```
+**401 Unauthorized:**
+
+```json
+{
+  "message": "Invalid token"
+}
+```
+**Menghapus Pengguna**
+**Endpoint:** DELETE /api/users/:id
+
+**Headers:**
+```
+Authorization: Bearer YOUR_JWT_TOKEN
+Response:
+```
+- 200 OK:
+
+```json
+{
+  "message": "User deleted successfully"
+}
+```
+- 401 Unauthorized:
+
+```json
+{
+  "message": "Invalid token"
+}
+```
+## Kategori ##
+**Membuat Kategori Baru**
+**Endpoint:** POST /api/categories
+
+**Header:**
+
+Authorization: Bearer YOUR_JWT_TOKEN
+Input:
+
+```json
+{
+  "name": "string"
+}```
+Response:
+
+- 200 OK:
+
+```json
+{
+  "id": "integer",
+  "name": "string"
+}```
+- 401 Unauthorized:
+
+```json
+{
+  "message": "Invalid token"
+}```
+Mendapatkan Semua Kategori
+Endpoint: GET /api/categories
+
+**Header:**
+
+Authorization: Bearer YOUR_JWT_TOKEN
+Response:
+
