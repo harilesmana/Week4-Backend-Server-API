@@ -203,8 +203,8 @@ Authorization: Bearer YOUR_JWT_TOKEN
 **Headers:**
 ```
 Authorization: Bearer YOUR_JWT_TOKEN
-Response:
 ```
+**Response:**
 - 200 OK:
 
 ```json
@@ -231,7 +231,8 @@ Input:
 ```json
 {
   "name": "string"
-}```
+}
+```
 Response:
 
 - 200 OK:
@@ -240,13 +241,15 @@ Response:
 {
   "id": "integer",
   "name": "string"
-}```
+}
+```
 - 401 Unauthorized:
 
 ```json
 {
   "message": "Invalid token"
-}```
+}
+```
 Mendapatkan Semua Kategori
 Endpoint: GET /api/categories
 
