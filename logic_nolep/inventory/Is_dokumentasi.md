@@ -8,38 +8,38 @@ API Inventory System adalah sebuah sistem yang memungkinkan pengguna untuk menge
 ## Daftar Endpoint
 
 ### Auth
-- [Registrasi Pengguna Baru](#registrasi-pengguna-baru)
-- [Login Pengguna](#login-pengguna)
+- Registrasi Pengguna Baru
+- Login Pengguna
 
 ### Pengguna
-- [Mendapatkan Semua Pengguna](#mendapatkan-semua-pengguna)
-- [Mendapatkan Pengguna Berdasarkan ID](#mendapatkan-pengguna-berdasarkan-id)
-- [Memperbarui Pengguna](#memperbarui-pengguna)
-- [Menghapus Pengguna](#menghapus-pengguna)
+- Mendapatkan Semua Pengguna
+- Mendapatkan Pengguna Berdasarkan ID
+- Memperbarui Pengguna
+- Menghapus Pengguna
 
 ### Kategori
-- [Membuat Kategori Baru](#membuat-kategori-baru)
-- [Mendapatkan Semua Kategori](#mendapatkan-semua-kategori)
-- [Mendapatkan Kategori Berdasarkan ID](#mendapatkan-kategori-berdasarkan-id)
-- [Memperbarui Kategori](#memperbarui-kategori)
-- [Menghapus Kategori](#menghapus-kategori)
+- Membuat Kategori Baru
+- Mendapatkan Semua Kategori
+- Mendapatkan Kategori Berdasarkan ID
+- Memperbarui Kategori
+- Menghapus Kategori
 
 ### Produk
-- [Membuat Produk Baru](#membuat-produk-baru)
-- [Mendapatkan Semua Produk](#mendapatkan-semua-produk)
-- [Mendapatkan Produk Berdasarkan ID](#mendapatkan-produk-berdasarkan-id)
-- [Memperbarui Produk](#memperbarui-produk)
-- [Menghapus Produk](#menghapus-produk)
+- Membuat Produk Baru
+- Mendapatkan Semua Produk
+- Mendapatkan Produk Berdasarkan ID
+- Memperbarui Produk
+- Menghapus Produk
 
 ### Pesanan
-- [Membuat Order Baru](#membuat-order-baru)
-- [Mendapatkan Semua Pesanan](#mendapatkan-semua-pesanan)
-- [Mendapatkan Order Berdasarkan ID](#mendapatkan-order-berdasarkan-id)
-- [Memperbarui Order](#memperbarui-order)
-- [Menghapus Order](#menghapus-order)
+- Membuat Order Baru
+- Mendapatkan Semua Pesanan
+- Mendapatkan Order Berdasarkan ID
+- Memperbarui Order
+- Menghapus Order
 
 ### Item Pesanan
-- [Membuat Item Pesanan Baru](#membuat-item-pesanan-baru)
+- Membuat Item Pesanan Baru
 
 ---
 
@@ -54,5 +54,139 @@ API Inventory System adalah sebuah sistem yang memungkinkan pengguna untuk menge
   "name": "string",
   "email": "string",
   "password": "string"
+}
+```
+**Response:**
+
+- 200 OK:
+
+```json
+{
+  "user": {
+    "id": "integer",
+    "name": "string",
+    "email": "string"
+  },
+  "token": "string"
+}
+```
+- **500 Internal Server Error**:
+
+```json
+{
+  "message": "Error message"
+}
+```
+**Login Pengguna**
+**Endpoint**: POST /api/auth/login
+
+**Input**:
+
+```json
+{
+  "email": "string",
+  "password": "string"
+}
+```
+**Response:**
+
+- 200 OK:
+
+```json
+{
+  "user": {
+    "id": "integer",
+    "name": "string",
+    "email": "string"
+  },
+  "token": "string"
+}
+```
+- 401 Unauthorized:
+
+```json
+{
+  "message": "Invalid credentials"
+}
+```
+
+## Pengguna ##
+**Mendapatkan Semua Pengguna**
+**Endpoint:** GET /api/users
+
+- Headers:
+
+```
+Authorization: Bearer YOUR_JWT_TOKEN
+```
+**Response:**
+- 200 OK
+```json
+[
+  {
+    "id": "integer",
+    "name": "string",
+    "email": "string"
+  }
+]
+```
+**401 Unauthorized:**
+
+```json
+{
+  "message": "Invalid token"
+}
+```
+## Mendapatkan Pengguna Berdasarkan ID ##
+
+**Endpoint**: GET /api/users/:id
+
+**Headers:**
+
+```
+Authorization: Bearer YOUR_JWT_TOKEN
+```
+**Response:**
+
+- 200 OK:
+
+```json
+{
+  "id": "integer",
+  "name": "string",
+  "email": "string"
+}
+```
+- 401 Unauthorized:
+
+```json
+{
+  "message": "Invalid token"
+}
+```
+## Memperbarui Pengguna ##
+**Endpoint**: PUT /api/users/:id
+
+**Headers:**
+```
+Authorization: Bearer YOUR_JWT_TOKEN
+```
+**Input:**
+
+```json
+{
+  "name": "string",
+  "email": "string"
+}
+```
+**Response:**
+
+- 200 OK:
+
+```json
+{
+  "id": "integer",
+  "name": "string",
+  "email": "string"
 }
 ```
