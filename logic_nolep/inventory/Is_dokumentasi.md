@@ -251,10 +251,134 @@ Response:
 }
 ```
 Mendapatkan Semua Kategori
-Endpoint: GET /api/categories
+**Endpoint:** GET /api/categories
 
 **Header:**
 
+```
 Authorization: Bearer YOUR_JWT_TOKEN
-Response:
+```
+**Response:**
 
+- 200 OK:
+
+```json
+[
+  {
+    "id": "integer",
+    "name": "string"
+  }
+]
+- 401 Unauthorized:
+
+```json
+{
+  "message": "Invalid token"
+}
+Mendapatkan Kategori Berdasarkan ID
+Endpoint: GET /api/categories/:id
+
+**Headers:**
+
+Authorization: Bearer YOUR_JWT_TOKEN
+**Response:**
+
+- 200 OK:
+
+```json
+{
+  "id": "integer",
+  "name": "string"
+}
+```
+- 401 Unauthorized:
+
+```json
+{
+  "message": "Invalid token"
+}
+```
+Memperbarui Kategori
+Endpoint: PUT /api/categories/:id
+
+**Headers:**
+```
+Authorization: Bearer YOUR_JWT_TOKEN
+```
+**Input:**
+
+```json
+{
+  "name": "string"
+}
+```
+**Response:**
+- 200 OK:
+
+```json
+{
+  "id": "integer",
+  "name": "string"
+}
+```
+- 401 Unauthorized:
+
+```json
+{
+  "message": "Invalid token"
+}
+```
+###Menghapus Kategori###
+Endpoint: DELETE /api/categories/:id
+
+**Headers:**
+```
+Authorization: Bearer YOUR_JWT_TOKEN
+```
+**Response:**
+
+- 200 OK:
+
+```json
+{
+  "message": "Category deleted successfully"
+}
+```
+- 401 Unauthorized:
+  ```json
+{
+  "message": "Invalid token"
+}
+```
+**Produk**
+##Membuat Produk Baru##
+Endpoint: POST /api/products
+
+Headers:
+
+Authorization: Bearer YOUR_JWT_TOKEN
+Input:
+
+```json
+{
+  "name": "string",
+  "description": "string",
+  "price": "number",
+  "stock": "integer",
+  "categoryId": "integer"
+}
+```
+**Response:**
+
+- 200 OK:
+
+```json
+{
+  "id": "integer",
+  "name": "string",
+  "description": "string",
+  "price": "number",
+  "stock": "integer",
+  "categoryId": "integer"
+}
+```
